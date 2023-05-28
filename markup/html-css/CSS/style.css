@@ -26,3 +26,335 @@ body{
     margin:0;
     line-height:1.6;
 }
+
+/*header*/
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: #fff;
+    background-color: inherit;
+    position: absolute;
+    z-index: 10;
+}
+
+.header-logo{
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.header-nav ul{
+    display: flex;
+    padding: 22px 0;
+}
+
+.header-nav ul li{
+margin-left: 55px;
+font-size: 15px;
+text-transform: uppercase;
+}
+
+/*footer*/
+footer{
+    background-color: #191919;
+    height: 50px;
+}
+
+.company-info{
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+}
+
+/*first-view*/
+#first-v{
+    height: 770px;
+    background-image: url(../img/bg1.png);
+    background-size: cover;
+    color: #fff;
+    position: relative;
+}
+
+.first-v-wrap{
+    padding: 285px 0 255px;
+    margin: 0 auto;
+    width: 250px;
+    text-align: center;
+}
+
+.first-v-title{
+    margin-bottom: 150px;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+/*キャッチコピーの下線*/
+.first-v-title::after{
+    display: block;
+    content: "";
+    width: 100px;
+    margin: 20px auto 0;
+    border-top: 1px solid #fff;
+}
+
+.fa-door-open{
+    padding-right: 4px;
+}
+
+/*共通のボタンデザイン*/
+.first-v-btn{
+    width: 200px;
+    height: 50px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    border: none;/*枠線を消す*/
+    border-radius: 5px;
+    background: linear-gradient(-90deg,#283c86,#06beb6);
+    box-shadow: 0px 5px #070707;
+    font-weight: bold;
+    font-size: 15px;
+    color: #fff;
+}
+
+/*entry*/
+#entry{
+    background-color: #fff;
+}
+
+.entry-wrap{
+    padding: 175px 0;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.entry-title{
+    margin-bottom: 55px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #191919;
+}
+
+.entry-btn{
+    width: 320px;
+}
+
+/*about*/
+.inner{
+    width: 1100px;/*about-itemのwidthとpaddingの合計*/
+    padding: 90px 0;/*titleまでの幅*/
+    margin: 0 auto;/*innerの配置を画面中央に*/
+}
+
+/*about,news 共通パート*/
+.title{
+    display: flex;
+    padding-bottom: 60px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+}
+
+.title-b{
+    font-weight: bold;
+}
+
+.title::after{
+    display: inline-block;
+    content: "";
+    width: 30px;
+    margin-left: 20px;
+    border-top: 1px solid #191919;
+}
+
+#about,
+#news{
+    color: #191919;
+    background-color: #f8f8f8;
+}
+
+.about-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
+    padding: 0;
+}
+
+.about-item{
+    display: block;
+    width: 300px;
+    height: 315px;
+    padding: 35px 50px 50px;
+    text-align: center;
+    background-color: #fff;
+}
+
+/*4-6番目のabout-itemにmargin-topをつけて、上との幅を確保する*/
+.about-item:nth(n+4):nth-child(-n+6){
+    margin-top: 47px;
+}
+
+.about-title__title{
+    font-size: 22px;
+}
+
+.about-item__img img{
+    width: 122px;
+    height: 122px;
+    margin: 20px 0 25px;
+}
+
+.about-item__desc{
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/*news*/
+#news{
+    width: 100%;
+    background-image: url(../img/bg2.png);
+    background-size: cover;
+}
+
+.white-title{
+    color: #fff;
+}
+
+.white-title::before{
+    display: inline-block;
+    content: "";
+    width: 30px;
+    margin-left: 20px;
+    border-top: 1px solid #fff;
+}
+
+.news-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
+    padding: 0;
+}
+
+.news-item{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 336px;
+    margin-top: 60px;
+}
+
+.news-content-text{
+    width: 100%;
+    height: calc(100% / 2);
+    background-color: #fff;
+    color: #191919;
+    padding: 20px;
+}
+
+.news-date{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.news-title__title{
+    padding: 8px 0 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.news-item__desc{
+    font-size: 12px;
+}
+
+.news-content-img{
+    width: 100%;
+    height: 207px;
+}
+
+.news-content-img img{
+    width: 100%;
+    height: auto;
+}
+
+/*contact*/
+#contact{
+    width: 100%;
+    background-image: url(../img/bg3.png);
+    background-size: cover;
+    color: #fff;
+}
+
+.red{
+    color: red;
+    margin-left: 5px;
+}
+
+.contact-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-box{
+    display: block;
+    width: 600px;
+    margin: 0 auto 30px;
+}
+
+.contact-caution{
+    display: block;
+    width: 600px;
+    margin: 0 auto 30px;
+    background-color: inherit;
+    color: #fff;
+    text-align: left;
+    font-size: 10px;
+}
+
+.contact-name,
+.contact-mailaddress,
+.contact-remailaddress,
+.service,
+.contact-document{
+    width: 100%;
+    line-height: 1.5;
+    background-color: inherit;
+    color: #fff;
+    text-align: left;
+    font-size: 10px;
+}
+
+input,
+select{
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 15px;
+    background-color: #fff;
+    color: #191919;
+    font-size: 15px;
+}
+
+.contact-box:nth-of-type(5){
+    margin-bottom: 0px;
+}
