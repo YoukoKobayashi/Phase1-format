@@ -1,0 +1,188 @@
+.concept__top {
+  background-color: #a193861f;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+  @include pc {
+      width: 1260px;
+      height: 400px;
+  }
+  @include tab {
+      width: 1260px;
+      max-width: 100%;
+      height: 400px;
+  }
+  @include sp {
+      width: 375px;
+      //min-width: 100%;
+      height: 213px;
+      padding-top: 100px;
+  }
+}
+
+.concept__bottom {
+  background-color: #a1938689;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  margin: 0;
+  @include pc {
+      width: 1260px;
+      height: 560px;
+  }
+  @include tab {
+      width: 1260px;
+      max-width: 100%;
+      height: 560px;
+  }
+  @include sp {
+      width: 375px;
+      height: 535px;
+  }
+}
+
+.concept__wrap {
+  position: relative;
+  @include pc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 900px;
+      height: 130px;
+      margin: 365px auto 65px;
+  }
+  @include tab {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 600px;
+      height: auto;
+      max-width: 100%;
+      margin: 365px auto 65px;
+  }
+
+  @include sp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 375px;
+      height: 535px;
+      margin: 365px auto 65px;
+      padding: 210px 20px 65px;
+  }
+
+  &-catch {
+      font-family: Hiragino Mincho Pro;
+      @include pc {
+          width: 445px;
+          font-size: 40px;
+          letter-spacing: 12px;
+          text-align: left;
+      }
+      @include tab {
+          width: 315px;
+          max-width: 100%;
+          font-size: 28px;
+          letter-spacing: 8px;
+          text-align: left;
+      }
+      @include sp {
+          width: 200px;
+          height: 30px;
+          font-size: 18px;
+          letter-spacing: 7px;
+      }
+  }
+
+  &-txt {
+      font-family: Hiragino Kaku Gothic Pro;
+      letter-spacing: 1.6px;
+      line-height: 1.7;
+      @include pc {
+          width: 430px;
+          font-size: 16px;
+          text-align: left;
+      }
+      @include tab {
+          width: 285px;
+          max-width: 100%;
+          font-size: 12px;
+          text-align: left;
+      }
+      @include sp {
+          width: 333px;
+          text-align: center;
+          padding-top: 18px;
+          font-size: 12px;
+          text-align: left;
+      }
+  }
+}
+
+.concept__item {
+  //position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+
+  &-img {
+      position: absolute;
+      z-index: 2;
+      @include pc {
+          top: -110px;
+      }
+      @include tab {
+          top: -110px;
+      }
+      @include sp {
+          top: -37px;
+      }
+      &:first-child {
+          display: block;
+          //position: absolute;
+          @include pc {
+              width: 675px;
+              max-width: 100%;
+              height: 413px;
+              left: 95px;
+              margin-right: 10px;
+          }
+          @include tab {
+              width: 350px;
+              height: auto;
+              left: 10px;
+              margin-right: 10px;
+          }
+          @include sp {
+              width: 164px;
+              min-width: 100%;
+              height: 205px;
+              left: 20px;
+              margin-right: 10px;
+          }
+      }
+      &:last-child {
+          display: block;
+          //position: relative;
+          @include pc {
+              width: 390px;
+              max-width: 100%;
+              height: 413px;
+              left: 780px;
+          }
+          @include tab {
+              width: 240px;
+              height: auto;
+              left: 360px;
+          }
+          @include sp {
+              width: 164px;
+              min-width: 100%;
+              height: 205px;
+              margin-left: 10px;
+              left: 184px;
+          }
+      }
+  }
+}

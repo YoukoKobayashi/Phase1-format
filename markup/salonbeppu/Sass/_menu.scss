@@ -1,0 +1,99 @@
+.menu {
+  background-color: #fff;
+  background-size: cover;
+  color: black;
+}
+
+.menu__wrap {
+  @include pc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 100px;
+  }
+
+  @include sp {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 20px;
+  }
+}
+
+.menu__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 274px;
+  margin: 0 0 50px;
+}
+
+.menu__item-img {
+  width: 271px;
+  height: 271px;
+  max-width: 100%;
+  max-height: auto;
+  margin: 0 20px;
+}
+
+.menu__item-catch {
+  width: 271px;
+  height: 30px;
+  font-family: Roboto Mono for Powerline;
+  font-size: 30px;
+  letter-spacing: 3px;
+  @include pc {
+      text-align: center;
+      margin: 34px auto 0;
+  }
+  @include sp {
+      text-align: left;
+      margin: {
+          top: 30px;
+          left: 33px;
+      }
+  }
+}
+
+.menu__item-txt {
+  width: 100%;
+  height: 131px;
+  font-family: Roboto Mono for Powerline;
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  line-height: 1.9;
+  text-align: left;
+  @include pc {
+      margin: 34px 10px;
+  }
+  @include sp {
+      margin: {
+          top: 30px;
+          left: 33px;
+          right: 0px;
+      }
+  }
+}
+
+.menu__item-price {
+  width: 100%;
+  height: 18px;
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  line-height: 1.9;
+  text-align: right;
+  @include pc {
+      margin: {
+          right: 0px;
+          bottom: 60px;
+      }
+  }
+  @include sp {
+      margin: {
+          top: 30px;
+          bottom: 13px;
+          right: -80px;
+      }
+  }
+}
