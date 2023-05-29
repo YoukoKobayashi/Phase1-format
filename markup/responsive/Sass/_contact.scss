@@ -1,0 +1,93 @@
+#contact {
+  background-image: url("../img/bg3.png");
+  background-size: cover;
+  color: #fff;
+
+  .title {
+      color: #fff;
+
+      &::before,
+      &::after {
+          border-color: #fff;
+      }
+  }
+}
+
+.contact {
+  &-box {
+      width: 100%;
+      margin-bottom: 33px;
+
+      // 3つめの要素を基準位置に指定
+      &:nth-of-type(3) {
+          position: relative;
+
+          // 3つめのセレクトボックスに疑似要素(icon用)を追加
+          &::after {
+              display: block;
+              position: absolute;
+              background: url(../img/arrow.png);
+              background-size: 100%;
+              content: "";
+              top: 60%;
+              right: 15px;
+              width: 15px;
+              height: 15px;
+          }
+      }
+      &:nth-of-type(4) {
+          margin-bottom: 0;
+      }
+  }
+
+  &-wrap {
+      width: 600px;
+      //最大幅を指定して要素を画面内におさめる
+      max-width: 600px;
+      margin: 0 auto;
+
+      // tab&spでは横幅いっぱいに広がるようにする
+      @include tab {
+          width: 80%;
+      }
+
+      @include sp {
+          width: 100%;
+      }
+  }
+
+  &-caution {
+      padding-bottom: 25px;
+  }
+
+  &-text {
+      margin-bottom: 10px;
+  }
+}
+
+.red {
+  color: red;
+  margin-left: 8px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border-radius: 7px;
+  padding: 15px;
+}
+
+select {
+  /*defaultの矢印アイコンを消す*/
+  appearance: none;
+}
+
+textarea {
+  height: 185px;
+}
+
+.caution-red {
+  margin-left: 0;
+  margin-right: 8px;
+}

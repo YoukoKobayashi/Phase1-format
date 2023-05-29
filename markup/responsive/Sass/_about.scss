@@ -1,0 +1,61 @@
+#about {
+  background-color: #f8f8f8;
+}
+
+.about-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.about-item {
+  // 300(item横幅)/1100(inner横幅)=27%
+  width: 27%;
+  background-color: #fff;
+  padding: 40px 3.5vw 30px;
+
+  @include tab {
+      width: 48%;
+  }
+
+  // tab用に3つめの要素の上に余白を追加
+  &:nth-of-type(3) {
+      @include tab {
+          margin-top: 30px;
+      }
+  }
+
+  // 4-6番目の要素の上部を空ける=4つ目以降
+  &:nth-child(n + 4) {
+      margin-top: 46px;
+
+      @include tab {
+          margin-top: 30px;
+      }
+  }
+
+  &__title {
+      font-size: 2.2rem;
+      text-align: center;
+
+      @include sp {
+          font-size: 1.5rem;
+      }
+  }
+
+  &__img {
+      width: 122px;
+      height: 122px;
+      margin: 20px auto 25px;
+
+      img {
+          width: 100%;
+          height: 100%;
+      }
+  }
+
+  &__desc {
+      margin-top: 35px;
+      font-size: 1.3rem;
+  }
+}

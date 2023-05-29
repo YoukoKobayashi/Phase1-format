@@ -1,0 +1,67 @@
+#first-v {
+  background-image: url(../img/bg1.jpg);
+  background-size: cover;
+  width: 100%;
+  // 画面サイズと同じ大きさ
+  height: 100vh;
+  // first-v__wrapの基準として
+  position: relative;
+  color: #fff;
+}
+
+.first-v__wrap {
+  width: 250px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  // first-vを基準として絶対配置
+  position: absolute;
+  // 基準の、上から＆左からの位置指定
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  @include sp {
+      height: 50%;
+      top: 65%;
+  }
+}
+
+.catch {
+  color: #fff;
+  font: {
+      size: 2.7rem;
+      weight: bold;
+  }
+
+  &::after {
+      display: block;
+      content: "";
+      width: 9.7rem; //97px
+      border-top: 1px solid #fff;
+      margin: 2rem auto 0;
+  }
+}
+
+.fv-btn {
+  width: 200px;
+  height: 50px;
+  // 右から左にグラデーション
+  background: linear-gradient(
+      to right,
+      $sky,
+      $navy
+  );
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  // 要素に影を付与
+  box-shadow: 0 5px #070707;
+
+  .btn-icon {
+      margin-right: 4px;
+  }
+}

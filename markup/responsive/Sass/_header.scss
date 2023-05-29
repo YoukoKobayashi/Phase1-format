@@ -1,0 +1,51 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: #fff;
+  /* 一次的に背景色付与、コーディング終了したらinherit（透明）に変更
+  background-color: black; */
+  position: absolute;
+  z-index: 20;
+
+  nav {
+      width: 45%;
+
+      // tab&spで非表示
+      @include tab {
+          display: none;
+      }
+
+      ul {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1.5rem;
+      }
+  }
+}
+
+.hd-logo {
+  font-size: 1.8rem; //18px
+  font-weight: bold;
+}
+
+.ham {
+  // pcで非表示
+  display: none;
+
+  @include tab {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 14px;
+      span {
+          display: inline-block;
+          width: 100%;
+          height: 1px;
+          background-color: #fff;
+      }
+  }
+}
