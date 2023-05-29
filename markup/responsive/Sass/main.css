@@ -1,0 +1,529 @@
+@charset "UTF-8";
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav, ul, li {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+a:visited {
+  color: inherti;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+
+/*  mixin  */
+/*  共通部分  */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 12px;
+  line-height: 1.67;
+}
+
+.inner {
+  /* 幅=1366px/1100px(about-item+その間隔)=80% */
+  width: 80%;
+  margin: 0 auto;
+  padding: 90px 0;
+}
+@media (max-width: 1024px) {
+  .inner {
+    width: 90%;
+    padding: 50px 0;
+  }
+}
+
+/*  var   */
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rm;
+  font-style: italic;
+  margin-bottom: 60px;
+}
+@media (max-width: 1024px) {
+  .title {
+    margin-bottom: 40px;
+  }
+}
+.title--b {
+  font-weight: bold;
+}
+.title::before {
+  display: inline-block;
+  content: "";
+  width: 3rem;
+  margin-right: 2rem;
+  border-top: 1px solid #191919;
+}
+.title::after {
+  display: inline-block;
+  content: "";
+  width: 3rem;
+  margin-left: 2rem;
+  border-top: 1px solid #191919;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: #fff;
+  /* 一次的に背景色付与、コーディング終了したらinherit（透明）に変更
+  background-color: black; */
+  position: absolute;
+  z-index: 20;
+}
+header nav {
+  width: 45%;
+}
+@media (max-width: 1024px) {
+  header nav {
+    display: none;
+  }
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.hd-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.ham {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .ham {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 14px;
+  }
+  .ham span {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+  }
+}
+
+#first-v {
+  background-image: url(../img/bg1.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  color: #fff;
+}
+
+.first-v__wrap {
+  width: 250px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+@media (max-width: 599px) {
+  .first-v__wrap {
+    height: 50%;
+    top: 65%;
+  }
+}
+
+.catch {
+  color: #fff;
+  font-size: 2.7rem;
+  font-weight: bold;
+}
+.catch::after {
+  display: block;
+  content: "";
+  width: 9.7rem;
+  border-top: 1px solid #fff;
+  margin: 2rem auto 0;
+}
+
+.fv-btn, .entry-btn {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(to right, #06beb6, #283c86);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 5px #070707;
+}
+.fv-btn .btn-icon, .entry-btn .btn-icon {
+  margin-right: 4px;
+}
+
+#about {
+  background-color: #f8f8f8;
+}
+
+.about-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.about-item {
+  width: 27%;
+  background-color: #fff;
+  padding: 40px 3.5vw 30px;
+}
+@media (max-width: 1024px) {
+  .about-item {
+    width: 48%;
+  }
+}
+@media (max-width: 1024px) {
+  .about-item:nth-of-type(3) {
+    margin-top: 30px;
+  }
+}
+.about-item:nth-child(n+4) {
+  margin-top: 46px;
+}
+@media (max-width: 1024px) {
+  .about-item:nth-child(n+4) {
+    margin-top: 30px;
+  }
+}
+.about-item__title {
+  font-size: 2.2rem;
+  text-align: center;
+}
+@media (max-width: 599px) {
+  .about-item__title {
+    font-size: 1.5rem;
+  }
+}
+.about-item__img {
+  width: 122px;
+  height: 122px;
+  margin: 20px auto 25px;
+}
+.about-item__img img {
+  width: 100%;
+  height: 100%;
+}
+.about-item__desc {
+  margin-top: 35px;
+  font-size: 1.3rem;
+}
+
+#news {
+  width: 100%;
+  background-image: url(../img/bg2.jpg);
+  background-size: cover;
+}
+#news .title {
+  color: #fff;
+}
+#news .title::before, #news .title::after {
+  border-color: #fff;
+}
+
+.news-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  align-items: center;
+  width: 100%;
+  margin-top: 60px;
+  padding: 0;
+}
+@media (max-width: 1024px) {
+  .news-wrap {
+    flex-direction: column;
+  }
+}
+.news-item {
+  display: block;
+  width: 30.5%;
+  /*margin-top: 60px;*/
+}
+@media (max-width: 1024px) {
+  .news-item {
+    width: 80%;
+    margin: 0 auto 30px;
+  }
+}
+@media (max-width: 599px) {
+  .news-item {
+    width: 100%;
+  }
+}
+.news-item::nth-child(3) {
+  margin-bottom: 0;
+}
+.news__img {
+  width: 100%;
+  height: 207px;
+}
+.news__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news-content {
+  padding: 20px;
+  background-color: #fff;
+}
+.news-content__day {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.news-content__title {
+  padding: 8px 0 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.news-content__intro {
+  font-size: 1.2rem;
+}
+
+#entry {
+  height: 477px;
+  width: 100%;
+  position: relative;
+}
+
+.entry-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 320px;
+  height: 127px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 599px) {
+  .entry-wrap {
+    width: 90%;
+  }
+}
+.entry-copy {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+.entry-btn {
+  width: 100%;
+}
+
+#contact {
+  background-image: url("../img/bg3.png");
+  background-size: cover;
+  color: #fff;
+}
+#contact .title {
+  color: #fff;
+}
+#contact .title::before, #contact .title::after {
+  border-color: #fff;
+}
+
+.contact-box {
+  width: 100%;
+  margin-bottom: 33px;
+}
+.contact-box:nth-of-type(3) {
+  position: relative;
+}
+.contact-box:nth-of-type(3)::after {
+  display: block;
+  position: absolute;
+  background: url(../img/arrow.png);
+  background-size: 100%;
+  content: "";
+  top: 60%;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+}
+.contact-box:nth-of-type(4) {
+  margin-bottom: 0;
+}
+.contact-wrap {
+  width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .contact-wrap {
+    width: 80%;
+  }
+}
+@media (max-width: 599px) {
+  .contact-wrap {
+    width: 100%;
+  }
+}
+.contact-caution {
+  padding-bottom: 25px;
+}
+.contact-text {
+  margin-bottom: 10px;
+}
+
+.red {
+  color: red;
+  margin-left: 8px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border-radius: 7px;
+  padding: 15px;
+}
+
+select {
+  /*defaultの矢印アイコンを消す*/
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+textarea {
+  height: 185px;
+}
+
+.caution-red {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+footer {
+  background-color: #191919;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+}/*# sourceMappingURL=main.css.map */
