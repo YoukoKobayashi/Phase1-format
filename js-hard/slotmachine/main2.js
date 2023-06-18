@@ -1,3 +1,4 @@
+// refactoring: normal
 const nowTime = document.getElementById("nowTime");
 const nowTime2 = document.getElementById("nowTime2");
 const nowTime3 = document.getElementById("nowTime3");
@@ -7,12 +8,13 @@ const setTime2 = document.getElementById("setTime2");
 const setTime3 = document.getElementById("setTime3");
 const startTimer = document.getElementById("startTimer");
 
+const nowTimes = [nowTime, nowTime2, nowTime3];
+const setTimes = [setTime1, setTime2, setTime3];
+
 let timer1;
 let timer2;
 let timer3;
-let i = 0;
-let i2 = 0;
-let i3 = 0;
+const timers = [timer1, timer2, timer3];
 let cnt = 0;
 
 const init = () => {
@@ -28,61 +30,33 @@ startTimer.addEventListener("click", () => {
   setTime1.disabled = false;
   setTime2.disabled = false;
   setTime3.disabled = false;
-  clearInterval(timer1);
-  timer1 = setInterval(() => {
-    countUp1();
-  }, 100);
-  clearInterval(timer2);
-  timer2 = setInterval(() => {
-    countUp2();
-  }, 100);
-  clearInterval(timer3);
-  timer3 = setInterval(() => {
-    countUp3();
-  }, 100);
+  clear(0);
+  clear(1);
+  clear(2);
 });
 
-
-const countUp1 = () => {
-  if (i === 9) {
-    i = 0;
-  } else {
-    i += 1;
-  }
-  nowTime.textContent = `${i}`;
+const clear = (num) => {
+  clearInterval(timers[num]);
+  timers[num] = setInterval(() => {
+    countUp(num);
+  }, 100);
 };
-const countUp2 = () => {
-  if (i2 === 9) {
-    i2 = 0;
+const countUp = (num) => {
+  if (cnt === 9) {
+    cnt = 0;
   } else {
-    i2 += 1;
+    cnt += 1;
   }
-  nowTime2.textContent = `${i2}`;
-};
-const countUp3 = () => {
-  if (i3 === 9) {
-    i3 = 0;
-  } else {
-    i3 += 1;
-  }
-  nowTime3.textContent = `${i3}`;
+  nowTimes[num].textContent = `${cnt}`;
 };
 
-setTime1.addEventListener("click", () => {
-  clearInterval(timer1);
-  setTime1.disabled = true;
-  judge();
-});
-setTime2.addEventListener("click", () => {
-  clearInterval(timer2);
-  setTime2.disabled = true;
-  judge();
-});
-setTime3.addEventListener("click", () => {
-  clearInterval(timer3);
-  setTime3.disabled = true;
-  judge();
-});
+const setTimer = (num) =>{
+  setTimes[num].addEventListener('click',()=>{
+    clearInterval(timers[num]);
+    setTimes[num].disabled = true;
+    judge();
+  })
+}
 
 const judge = () => {
   if (
@@ -101,3 +75,7 @@ const judge = () => {
     init();
   }
 };
+
+setTimer(0);
+setTimer(1);
+setTimer(2);

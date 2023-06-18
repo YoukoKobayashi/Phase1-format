@@ -6,13 +6,9 @@
 
 let i = 400;
 
-const sampleForm =
-    document.getElementById("sampleForm");
-const textCounter = document.getElementById(
-    "textCounter"
-);
-const resetBtn =
-    document.getElementById("resetBtn");
+const sampleForm = document.getElementById("sampleForm");
+const textCounter = document.getElementById("textCounter");
+const resetBtn = document.getElementById("resetBtn");
 
 // challenge
 const iniDel = document.getElementById("iniDel");
@@ -25,33 +21,27 @@ let textarea; //  str格納用変数 != array指定
 // });
 
 sampleForm.addEventListener("keyup", () => {
-    textCounter.textContent = `あと${
-        i - sampleForm.value.length
-    }文字`;
-    textarea = sampleForm.value;
+  textCounter.textContent = `あと${i - sampleForm.value.length}文字`;
+  textarea = sampleForm.value;
 });
 
 resetBtn.addEventListener("click", () => {
-    //sampleForm.textContent = "";
-    textarea = "";
-    textCounter.textContent = "あと400文字";
-    i = 400;
+  //sampleForm.textContent = "";
+  textarea = "";
+  textCounter.textContent = "あと400文字";
+  i = 400;
 });
 
 // first:slice(1)
 iniDel.addEventListener("click", () => {
-    textarea = textarea.slice(1);
-    sampleForm.value = textarea;
-    textCounter.textContent = `あと${
-        i - sampleForm.value.length
-    }文字`;
+  textarea = textarea.slice(1);
+  sampleForm.value = textarea;
+  textCounter.textContent = `あと${i - sampleForm.value.length}文字`;
 });
 
 // end:slice(0,-1)
 endDel.addEventListener("click", () => {
-    textarea = textarea.slice(0, -1);
-    sampleForm.value = textarea;
-    textCounter.textContent = `あと${
-        i - sampleForm.value.length
-    }文字`;
+  textarea = textarea.slice(0, -1); //表示の開始位置は0、末尾から1文字を削除
+  sampleForm.value = textarea;
+  textCounter.textContent = `あと${i - sampleForm.value.length}文字`;
 });

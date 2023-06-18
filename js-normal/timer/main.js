@@ -9,7 +9,7 @@ const startTimer =
 const stopTimer =
     document.getElementById("stopTimer");
 //const inputTime =
-//  document.getElementById("inputTime");
+//  document.getElementById("inputTime");   //inputTimeは、ボタンをクリックした時に取得すればよい（読み込み時に取得する必要はない）
 const setTime =
     document.getElementById("setTime");
 const nowTime =
@@ -23,7 +23,8 @@ setTime.addEventListener("click", () => {
     iHour = Math.floor(i / 3600);
     iMinute = Math.floor((i - iHour * 3600) / 60);
     iSec = i - iHour * 3600 - iMinute * 60;
-    nowTime.innerHTML = `残り${iHour}時間${iMinute}分${iSec}秒：セット完了です`;
+    // nowTime.innerHTML = `残り${iHour}時間${iMinute}分${iSec}秒：セット完了です`;
+    nowTime.textContent= `残り${iHour}時間${iMinute}分${iSec}秒：セット完了です`;
     //nowTime.innerHTML = `${i}：セット完了です`;
 });
 

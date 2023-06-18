@@ -84,7 +84,7 @@
 // };
 // 模範解答（ここまで）-------------------------------
 
-// challenge
+// challenge----------------------
 let timer;
 
 const confirmTime2 = document.getElementById(
@@ -93,7 +93,6 @@ const confirmTime2 = document.getElementById(
 const startTimer2 = document.getElementById(
     "startTimer2"
 );
-//let sec = 0;
 let startTime;
 let nowTime;
 let diffTime;
@@ -101,35 +100,27 @@ let diffTime;
 confirmTime2.addEventListener("click", () => {
     const now_time =
         document.getElementById("now_time");
-    nowTime = new Date();
-    //sec = (time2 - time1) / 1000;
+    nowTime = new Date();   //現在の時刻を取得
     if (startTime === undefined) {
         return;
     }
-    //if (sec === 20) {
     if (diffTime === 20) {
-        //now_time.textContent = `${sec}秒経過です`;
         alert("ジャスト20秒！！お見事です！");
-        //} else if (sec < 20) {
     } else if (diffTime < 20) {
-        //now_time.textContent = `${sec}秒経過です`;
         alert(
             `まだ${diffTime}秒しか経ってない！！最初からやり直してね`
         );
     } else {
-        //now_time.textContent = `${sec}秒経過です`;
         alert(
             `もう${diffTime}秒経過！！最初からやり直してね`
         );
     }
-    clearInterval(timer);
-    //sec = 0;
+    clearInterval(timer);   //timer = setInterval(() => { countUp2(); }, 1000); をクリアーする
 });
 
 startTimer2.addEventListener("click", () => {
     startTime = new Date();
-    //clearInterval(timer);
-    timer = setInterval(() => {
+    timer = setInterval(() => { // 1秒ごとにカウントアップする
         countUp2();
     }, 1000);
 });
@@ -140,11 +131,9 @@ const countUp2 = () => {
     diffTime = Math.floor(
         (checkTime.getTime() -
             startTime.getTime()) /
-            1000
+            1000        // getTime()はミリ秒なので1000で割る
     );
     if (diffTime === 40) {
-        //if (sec === 40) {
-        //    clearInterval(timer);
         alert(
             "タイムオーバー！最初からやり直してね"
         );

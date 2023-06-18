@@ -103,94 +103,71 @@
 // });
 
 // challenge
-const setHand =
-    document.getElementById("setHand");
-const player1Hand = document.getElementById(
-    "player1Hand"
-);
-const player2Hand = document.getElementById(
-    "player2Hand"
-);
+const setHand = document.getElementById("setHand");
+const player1Hand = document.getElementById("player1Hand");
+const player2Hand = document.getElementById("player2Hand");
 const player = document.getElementById("player");
 
 let turn = 0;
-let player1Num;
-let player2Num;
+let player1Value;
+let player2Value;
 
 setHand.addEventListener("click", () => {
-    if (turn === 0) {
-        player1Num =
-            document.getElementById(
-                "playerHand"
-            ).value;
-        player1Hand.textContent =
-            "player1:セット完了";
-        player.textContent = "player2";
-    } else {
-        player2Num =
-            document.getElementById(
-                "playerHand"
-            ).value;
-        player2Hand.textContent =
-            "player2:セット完了";
-        player.textContent = "両者セット完了";
-    }
-    turn += 1;
+  if (turn === 0) {
+    player1Value = document.getElementById("playerHand").value;
+    player1Hand.textContent = "player1:セット完了";
+    player.textContent = "player2";
+  } else {
+    player2Value = document.getElementById("playerHand").value;
+    player2Hand.textContent = "player2:セット完了";
+    player.textContent = "両者セット完了";
+  }
+  turn += 1;
 });
 
-const gameStart =
-    document.getElementById("gameStart");
+const gameStart = document.getElementById("gameStart");
 const log = document.getElementById("log");
 log.textContent = "結果：";
 
 gameStart.addEventListener("click", () => {
-    if (turn !== 2) {
-        alert("2回以上押さないでください");
-        return;
+  if (turn !== 2) {
+    alert("2回以上押さないでください");
+    return;
+  }
+  switch (player1Value) {
+    case "0": {
+      if (player2Value === "0") {
+        log.textContent = "結果：引き分け";
+      } else if (player2Value === "1") {
+        log.textContent = "結果：player1の勝ち";
+      } else if (player2Value === "2") {
+        log.textContent = "結果：player1の負け";
+      }
+      break;
     }
-    switch (player1Num) {
-        case "0": {
-            if (player2Num === "0") {
-                log.textContent =
-                    "結果：引き分け";
-            } else if (player2Num === "1") {
-                log.textContent =
-                    "結果：player1の勝ち";
-            } else if (player2Num === "2") {
-                log.textContent =
-                    "結果：player1の負け";
-            }
-            break;
-        }
-        case "1": {
-            if (player2Num === "0") {
-                log.textContent =
-                    "結果：player1の負け";
-            } else if (player2Num === "1") {
-                log.textContent =
-                    "結果：引き分け";
-            } else if (player2Num === "2") {
-                log.textContent =
-                    "結果：player1の勝ち";
-            }
-            break;
-        }
-        case "2": {
-            if (player2Num === "0") {
-                log.textContent =
-                    "結果：player1の勝ち";
-            } else if (player2Num === "1") {
-                log.textContent =
-                    "結果：player1の負け";
-            } else if (player2Num === "2") {
-                log.textContent =
-                    "結果：引き分け";
-            }
-            break;
-        }
+    case "1": {
+      if (player2Value === "0") {
+        log.textContent = "結果：player1の負け";
+      } else if (player2Value === "1") {
+        log.textContent = "結果：引き分け";
+      } else if (player2Value === "2") {
+        log.textContent = "結果：player1の勝ち";
+      }
+      break;
     }
-    turn = 0;
-    player.textContent = "player1";
-    player1Hand.textContent = "player1:";
-    player2Hand.textContent = "player2:";
+    case "2": {
+      if (player2Value === "0") {
+        log.textContent = "結果：player1の勝ち";
+      } else if (player2Value === "1") {
+        log.textContent = "結果：player1の負け";
+      } else if (player2Value === "2") {
+        log.textContent = "結果：引き分け";
+      }
+      break;
+    }
+  }
+  turn = 0;
+  player.textContent = "player1";
+  player1Hand.textContent = "player1:";
+  player2Hand.textContent = "player2:";
 });
