@@ -1,114 +1,112 @@
-// refactoring
-// htmlの要素を配列にする：上中下列の表示とストップボタン
-const nowTime4 = document.getElementById("nowTime4");
-const nowTime5 = document.getElementById("nowTime5");
-const nowTime6 = document.getElementById("nowTime6");
+// refactoring_0622
+// htmlの要素を取得：上中下列の表示とストップボタン
+const upLeft = document.getElementById("nowTime4");
+const upCenter = document.getElementById("nowTime5");
+const upRight = document.getElementById("nowTime6");
+const middleLeft = document.getElementById("nowTime");
+const middleCenter = document.getElementById("nowTime2");
+const middleRight = document.getElementById("nowTime3");
+const bottomLeft = document.getElementById("nowTime7");
+const bottomCenter = document.getElementById("nowTime8");
+const bottomRight = document.getElementById("nowTime9");
+const stopButtonLeft = document.getElementById("setTime1");
+const stopButtonCenter = document.getElementById("setTime2");
+const stopButtonRight = document.getElementById("setTime3");
+const slotStartButton = document.getElementById("startTimer");
+// 上記を配列に格納する
+const ups = [upLeft, upCenter, upRight];
+const middles = [middleLeft, middleCenter, middleRight];
+const bottoms = [bottomLeft, bottomCenter, bottomRight];
+const stopButtons = [stopButtonLeft, stopButtonCenter, stopButtonRight];
 
-const nowTime = document.getElementById("nowTime");
-const nowTime2 = document.getElementById("nowTime2");
-const nowTime3 = document.getElementById("nowTime3");
-
-const nowTime7 = document.getElementById("nowTime7");
-const nowTime8 = document.getElementById("nowTime8");
-const nowTime9 = document.getElementById("nowTime9");
-
-const setTime1 = document.getElementById("setTime1");
-const setTime2 = document.getElementById("setTime2");
-const setTime3 = document.getElementById("setTime3");
-const startTimer = document.getElementById("startTimer");
-
-const nowTimesUp = [nowTime4, nowTime5, nowTime6];
-const nowTimesMiddle = [nowTime, nowTime2, nowTime3];
-const nowTimesBottom = [nowTime7, nowTime8, nowTime9];
-const setTimes = [setTime1, setTime2, setTime3];
-
-// ボタン表示の初期化
+// fn. ボタン表示の初期化
 const init = () => {
-  startTimer.disabled = false;
-  setTime1.disabled = true;
-  setTime2.disabled = true;
-  setTime3.disabled = true;
+  slotStartButton.disabled = false;
+  stopButtonLeft.disabled = true;
+  stopButtonCenter.disabled = true;
+  stopButtonRight.disabled = true;
 };
 init();
 
-// スタートボタンをクリックした際の実行
-startTimer.addEventListener("click", () => {
-  startTimer.disabled = true;
-  setTime1.disabled = false;
-  setTime2.disabled = false;
-  setTime3.disabled = false;
-  clear(0);
-  clear(1);
-  clear(2);
+// event スタートボタンをクリックした際
+slotStartButton.addEventListener("click", () => {
+  slotStartButton.disabled = true;
+  stopButtonLeft.disabled = false;
+  stopButtonCenter.disabled = false;
+  stopButtonRight.disabled = false;
+  clearCountUpNumber(0);
+  clearCountUpNumber(1);
+  clearCountUpNumber(2);
 });
 
-// 0.1秒ごとの処理の関数
-let timer1;
-let timer2;
-let timer3;
-const timers = [timer1, timer2, timer3];
-const clear = (num) => {
-  clearInterval(timers[num]);
-  timers[num] = setInterval(() => {
-    countUp(num);
+// fn. 0.1秒ごとの処理= 表示する数字を制御する関数を実行
+// let stopLeftId;  // ①変数に直接返り値IDが入るわけではないので、下記constで宣言してOK
+// let stopCenterId;
+// let stopRightId;
+// const stopLeftId = 0; // ②ここに返り値IDが入るわけではないので、constで適当な数値を入れても動く
+// const stopCenterId = 0;  // ②の理屈から、空配列を用意しておけばOKで、constも不要
+// const stopRightId = 0;
+const controlStopButtons = []; // setIntervalの返り値IDが格納される
+const clearCountUpNumber = (index) => {
+  clearInterval(controlStopButtons[index]); // setIntervalの返り値IDが配列の要素に入る
+  controlStopButtons[index] = setInterval(() => {
+    displayCountUpNumbers(index);
   }, 100);
 };
 
-// 表示する数字を制御する関数
-let cnt = 0;
-let cnt2 = -1;
-let cnt3 = 1;
-const countUp = (num) => {
-  if (cnt === 9) {
-    cnt = 0;
-    cnt2 = 9;
-    cnt3 = 1;
-  } else if (cnt === 8) {
-    cnt = 9;
-    cnt2 = 8;
-    cnt3 = 0;
-  } else if (cnt === 0) {
-    cnt = 1;
-    cnt2 = 0;
-    cnt3 += 1;
+// fn. 表示する数字を制御する
+let displayUp = -1;
+let displayMiddle = 0;
+let displayBottom = 1;
+const displayCountUpNumbers = (index) => {
+  if (displayMiddle === 9) {
+    displayMiddle = 0;
+    displayUp = 9;
+    displayBottom = 1;
+  } else if (displayMiddle === 8) {
+    displayMiddle = 9;
+    displayUp = 8;
+    displayBottom = 0;
+  } else if (displayMiddle === 0) {
+    displayMiddle = 1;
+    displayUp = 0;
+    displayBottom += 1;
   } else {
-    cnt += 1;
-    cnt2 += 1;
-    cnt3 += 1;
+    displayMiddle += 1;
+    displayUp += 1;
+    displayBottom += 1;
   }
-  nowTimesMiddle[num].textContent = `${cnt}`;
-  nowTimesUp[num].textContent = `${cnt2}`;
-  nowTimesBottom[num].textContent = `${cnt3}`;
+  middles[index].textContent = `${displayMiddle}`;
+  ups[index].textContent = `${displayUp}`;
+  bottoms[index].textContent = `${displayBottom}`;
 };
 
-// ストップボタンの処理関数
-const setTimer = (num) => {
-  setTimes[num].addEventListener("click", () => {
-    clearInterval(timers[num]);
-    setTimes[num].disabled = true;
+// fn. ストップボタンの処理
+const clickStopButton = (index) => {
+  stopButtons[index].addEventListener("click", () => {
+    clearInterval(controlStopButtons[index]);
+    stopButtons[index].disabled = true;
     judge();
   });
 };
 
+// fn. 停止時の3桁の判定
 const judge = () => {
   if (
-    setTime1.disabled === true &&
-    setTime2.disabled === true &&
-    setTime3.disabled === true
+    stopButtonLeft.disabled === true &&
+    stopButtonCenter.disabled === true &&
+    stopButtonRight.disabled === true
   ) {
-    if (
-      nowTime.textContent === nowTime2.textContent &&
-      nowTime.textContent === nowTime3.textContent
-    ) {
-      alert("成功です！");
-    } else {
-      alert("再挑戦してね！");
-    }
+    middleLeft.textContent === middleCenter.textContent &&
+    middleLeft.textContent === middleRight.textContent
+      ? alert("成功です！")
+      : alert("再挑戦してね！");
+
     init();
   }
 };
 
 // 実行
-setTimer(0);
-setTimer(1);
-setTimer(2);
+clickStopButton(0);
+clickStopButton(1);
+clickStopButton(2);

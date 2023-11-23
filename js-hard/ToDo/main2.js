@@ -5,7 +5,7 @@ const addBtn = document.getElementsByClassName("add-btn");
 // 削除ボタンの特定のためにdeleteList()も実行する。
 addBtn[0].addEventListener("click", () => {
   addListAndFinishBtn();
-  deleteListTextAndFinishBtn();
+  // deleteListTextAndFinishBtn(); //ver.2
 });
 
 const addListAndFinishBtn = () => {
@@ -20,27 +20,34 @@ const addListAndFinishBtn = () => {
   // addList.textContent = listText; ListTextはノードだから[objecttext]と表示されてしまう
   addList.textContent = addText.value;
 
-  const finishBtn = document.createElement("button");
+  const finishBtn = document.createElement("button"); // ここで削除機能を追加
   finishBtn.classList.add("finishBtn");
   finishBtn.textContent = "完了";
-  addList.appendChild(finishBtn); // ここで削除機能を追加し、完了の際は子要素として一括削除する
+  // 削除のイベント処理も用意。親要素から子要素を一括削除
+  finishBtn.addEventListener("click", () => {
+    finishBtn.parentNode.remove();
+  });
+  addList.appendChild(finishBtn); 
 
   const todoLists = document.getElementById("todo");
   todoLists.appendChild(addList); // addList=text+finishBtn
   addText.value = "";
 };
 
-const deleteListTextAndFinishBtn = () => {
-  const finishBtns = document.getElementsByClassName("finishBtn");
-  for (let n = 0; n < finishBtns.length; n++) {
-    // アロー関数で書くとthisの内容がundifinedになるので無名関数にする
-    // アロー関数(const)では、ガベージコレクションの対象とならずconstがデータを保持する（コード実行前に最小単位に分解するレキシカルスコープの性質）???
-    // finishBtns[n].addEventListener("click", function () {
-    //   this.parentNode.remove();
-    // });
-    finishBtns[n].addEventListener("click", () => {
-      finishBtns[n].parentNode.style.display = "none";
-    });
-  }
-};
+// わざわざ再度、要素の取得＆削除処理を記載する必要はない。
+// const deleteListTextAndFinishBtn = (n) => {
+//   const finishBtns = document.getElementsByClassName("finishBtn");
+//   for (let n = 0; n < finishBtns.length; n++) {
+//     // アロー関数で書くとthisの内容がundifinedになるので無名関数にする
+//     // アロー関数(const)では、ガベージコレクションの対象とならずconstがデータを保持する（コード実行前に最小単位に分解するレキシカルスコープの性質）???
+//     //ver.3
+//     // finishBtns[n].addEventListener("click", function () { 
+//     //   this.parentNode.remove();
+//     // });
+//     //ver.2 
+//     finishBtns[n].addEventListener("click", () => {
+//       finishBtns[n].parentNode.style.display = "none";
+//     });
+//   }
+// };
 

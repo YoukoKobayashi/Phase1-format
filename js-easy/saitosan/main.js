@@ -1,43 +1,46 @@
-// // const setBtn = function () {
-// //     const rndm = Math.floor(Math.random() * 10);
+// // normal
+// const setBtn = () => {
+//   const randomNums = Math.floor(Math.random() * 10);
 
-// //     if (rndm < 5) {
-// //         alert("ぺっぺけぺー");
-// //     } else {
-// //         alert("斎藤さんだぞ？");
-// //     }
-// // };
-
-// challenge__三項演算子
-// const setBtn = function () {
-//     const rndm = Math.floor(Math.random() * 10);
-//     const ans1 = "斎藤さんだぞ？";
-//     const ans2 = "ぺっぺけぺー";
-
-//     const result = rndm < 5 ? ans2 : ans1;
-//     alert(result);
+//   if (randomNums < 5) {
+//     alert("ぺっぺけぺー");
+//   } else {
+//     alert("斎藤さんだぞ？");
+//   }
 // };
 
-// add__challenge__confirmの真偽値で値の出し分け
-const ans1 = "斎藤さんだぞ？";
-const ans2 = "ぺっぺけぺー";
+// // チャレンジ: 三項演算子
+// const setBtn = () => {
+//   const randomNums = Math.floor(Math.random() * 10);
+//   const anser1 = "斎藤さんだぞ？";
+//   const anser2 = "ぺっぺけぺー";
 
-const setBtn = function () {
-    const rndm = Math.floor(Math.random() * 10);
+// //   console.log(randomNums);
+//   const result = randomNums < 5 ? anser2 : anser1;
+//   alert(result);
+// };
 
-    if (rndm < 5) {
-        const result = window.confirm(ans1);
-        if (result) {
-            alert(ans1);
-        } else {
-            alert(ans2);
-        }
+// 追加チャレンジ: confirmの真偽値で値の出し分け
+// OK=>同じ言葉　cancel=>反対の言葉をアラート表示する
+const anser1 = "斎藤さんだぞ？";
+const anser2 = "ぺっぺけぺー";
+
+const setBtn = () => {
+  const randomNums = Math.floor(Math.random() * 10);
+
+  if (randomNums < 5) {
+    const result = window.confirm(anser1);
+    if (result) {
+      alert(anser1);
     } else {
-        const result = window.confirm(ans2);
-        if (result) {
-            alert(ans2);
-        } else {
-            alert(ans1);
-        }
+      alert(anser2);
     }
+  } else {
+    const result = window.confirm(anser2);
+    if (result) {
+      alert(anser2);
+    } else {
+      alert(anser1);
+    }
+  }
 };

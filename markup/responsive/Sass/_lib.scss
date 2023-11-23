@@ -2,27 +2,28 @@
 // PC
 @mixin pc {
   @media (min-width: 1025px) {
-      @content;
+    @content;
   }
 }
 
 //Tablet
 @mixin tab {
   @media (max-width: 1024px) {
-      @content;
+    @content;
   }
 }
 
 // sp
 @mixin sp {
   @media (max-width: 599px) {
-      @content;
+    @content;
   }
 }
 
 /*  共通部分  */
 html {
-  font-size: 62.5%; //10px=1rem
+  // font-size: 62.5%; //10px=1rem
+  font-size: 10px;
 }
 
 body {
@@ -37,8 +38,8 @@ body {
   padding: 90px 0;
 
   @include tab {
-      width: 90%;
-      padding: 50px 0;
+    width: 90%;
+    padding: 50px 0;
   }
 }
 
@@ -51,32 +52,37 @@ $navy: #283c86;
   justify-content: center;
   align-items: center;
   font: {
-      size: 1.8rm;
-      style: italic;
+    size: 1.8rem;
+    style: italic;
   }
   margin-bottom: 60px;
 
   @include tab {
-      margin-bottom: 40px;
+    margin-bottom: 40px;
   }
 
   &--b {
-      font-weight: bold;
+    font-weight: bold;
   }
 
+  // %beforeAfter{
   &::before {
-      display: inline-block;
-      content: "";
-      width: 3rem;
-      margin-right: 2rem;
-      border-top: 1px solid #191919;
+    display: inline-block;
+    content: "";
+    width: 3rem;
+    margin-right: 2rem;
+    border-top: 1px solid #191919;
   }
+  // }
+
+  // &::after {
+  //   @extend %beforeAfter
+  //     margin-left: 2rem;
+  // }
 
   &::after {
-      display: inline-block;
-      content: "";
-      width: 3rem;
-      margin-left: 2rem;
-      border-top: 1px solid #191919;
+    @extend ::before;
+    margin-right: 0;
+    margin-left: 2rem;
   }
 }
