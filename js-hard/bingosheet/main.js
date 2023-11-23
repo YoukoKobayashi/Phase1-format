@@ -1,137 +1,139 @@
-// const arrB = [];
+// const randomsB = [];
 // let b = 0;
 // while (b < 5) {
 //     let n1 = Math.floor(Math.random() * 15) + 1;
-//     if (arrB.includes(n1) === false) {
-//         arrB.push(n1);
+//     if (randomsB.includes(n1) === false) {
+//         randomsB.push(n1);
 //         b += 1;
 //     }
 // }
-// console.log(arrB);
+// console.log(randomsB);
 
-// const arrI = [];
+// const randomsI = [];
 // let i = 0;
 // while (i < 5) {
 //     let n2 =
 //         Math.floor(
 //             Math.random() * (30 - 16 + 1)
 //         ) + 16;
-//     if (arrI.includes(n2) === false) {
-//         arrI.push(n2);
+//     if (randomsI.includes(n2) === false) {
+//         randomsI.push(n2);
 //         i += 1;
 //     }
 // }
-// const arrN = [];
+// const randomsN = [];
 // let n = 0;
 // while (n < 5) {
 //     let n3 =
 //         Math.floor(
 //             Math.random() * (45 - 31 + 1)
 //         ) + 31;
-//     if (arrN.includes(n3) === false) {
-//         arrN.push(n3);
+//     if (randomsN.includes(n3) === false) {
+//         randomsN.push(n3);
 //         n += 1;
 //     }
 // }
-// arrN[2] = "free";
-// const arrG = [];
+// randomsN[2] = "free";
+// const randomsG = [];
 // let g = 0;
 // while (g < 5) {
 //     let n4 =
 //         Math.floor(
 //             Math.random() * (60 - 46 + 1)
 //         ) + 46;
-//     if (arrG.includes(n4) === false) {
-//         arrG.push(n4);
+//     if (randomsG.includes(n4) === false) {
+//         randomsG.push(n4);
 //         g += 1;
 //     }
 // }
-// const arrO = [];
+// const randomsO = [];
 // let o = 0;
 // while (o < 5) {
 //     let n5 =
 //         Math.floor(
 //             Math.random() * (75 - 61 + 1)
 //         ) + 61;
-//     if (arrO.includes(n5) === false) {
-//         arrO.push(n5);
+//     if (randomsO.includes(n5) === false) {
+//         randomsO.push(n5);
 //         o += 1;
 //     }
 // }
 
-const arrTtl = ["B", "I", "N", "G", "O"];
+const titleChars = ["B", "I", "N", "G", "O"];
 
-const arrNum = [];
-for (let a = 1; a <= 5; a++) {
-  const arr = [];
+const randoms25 = [];
+for (let line = 1; line <= 5; line++) {
+  const randomsOneLine = [];
   let i = 0;
   while (i < 5) {
     let n =
-      Math.floor(Math.random() * (15 * a - 15 * (a - 1))) + 15 * (a - 1) + 1;
-    if (arr.includes(n) === false) {
-      arr.push(n);
+      Math.floor(Math.random() * (15 * line - 15 * (line - 1))) +
+      15 * (line - 1) +
+      1;
+    if (randomsOneLine.includes(n) === false) {
+      randomsOneLine.push(n);
       i += 1;
     }
   }
-  arrNum.push(arr);
+  randoms25.push(randomsOneLine);
 }
-arrNum[2][2] = "free";
-console.log(arrNum);
+randoms25[2][2] = "free";
+// console.log(randoms25);
 
 const view = document.getElementById("view");
-const tr = document.createElement("tr");
-let tdsValues = [];
-view.appendChild(tr);
-for (let t = 0; t < arrTtl.length; t++) {
-  const th = document.createElement("th");
-  th.textContent = arrTtl[t];
-  view.appendChild(th);
+const row = document.createElement("tr");
+let tableValues = [];
+view.appendChild(row);
+for (let t = 0; t < titleChars.length; t++) {
+  const tableHeader = document.createElement("th");
+  tableHeader.textContent = titleChars[t];
+  view.appendChild(tableHeader);
 }
 for (let r = 0; r < 5; r++) {
-  const tr = document.createElement("tr");
-  view.appendChild(tr);
+  const row = document.createElement("tr");
+  view.appendChild(row);
   for (let c = 0; c < 5; c++) {
-    const td = document.createElement("td");
-    td.textContent = arrNum[c][r];
-    view.appendChild(td);
-    tdsValues.push(arrNum[c][r]);
+    const tableData = document.createElement("td");
+    tableData.textContent = randoms25[c][r];
+    view.appendChild(tableData);
+    tableValues.push(randoms25[c][r]);
     // freeを反転
-    if (td.textContent === "free") {
-      td.setAttribute("class", "hit-num");
+    if (tableData.textContent === "free") {
+      tableData.setAttribute("class", "hit-num");
     }
   }
 }
 
-console.log(tdsValues);
+console.log(tableValues);
 
 const hitNum = document.getElementById("hitNum");
-const duppli = [];
+const checkDuplication = [];
 hitNum.addEventListener("click", () => {
   let selectNum = Math.floor(Math.random() * 75) + 1;
   // ランダムな数値の重複確認
-  //   duppli.push(selectNum);
-  //   if (duppli.includes(selectNum) === false) {
-  //     duppli.push(selectNum);
+  //   checkDuplication.push(selectNum);
+  //   if (checkDuplication.includes(selectNum) === false) {
+  //     checkDuplication.push(selectNum);
   //   } else {
   //     selectNum = Math.floor(Math.random() * 75) + 1;
-  //     if (duppli.includes(selectNum) === false) {
-  //       duppli.push(selectNum);
+  //     if (checkDuplication.includes(selectNum) === false) {
+  //       checkDuplication.push(selectNum);
   //     } else {
   //       selectNum = Math.floor(Math.random() * 75) + 1;
-  //       if (duppli.includes(selectNum) === false) {
-  //         duppli.push(selectNum);
+  //       if (checkDuplication.includes(selectNum) === false) {
+  //         checkDuplication.push(selectNum);
   //       }
   //     }
   //   }
   //   alert(`${selectNum}です`);
-  while (duppli.includes(selectNum) === true) {
+  while (checkDuplication.includes(selectNum) === true) {
     selectNum = Math.floor(Math.random() * 75) + 1;
   }
-  if (duppli.includes(selectNum) === false) {
-    duppli.push(selectNum);
+  if (checkDuplication.includes(selectNum) === false) {
+    checkDuplication.push(selectNum);
     alert(`${selectNum}です`);
   }
-  console.log(duppli);
+  console.log(checkDuplication);
   const tds = document.getElementsByTagName("td");
   for (c = 0; c < tds.length; c++) {
     //selectNumとtds[c].textContentの数値を比較,型を一致させる

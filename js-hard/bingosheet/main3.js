@@ -4,15 +4,13 @@ const numArr = [];
 for (let col = 1; col <= 5; col++) {
   // 1. 各列に表示する数値の配列を作る
   const randomNumArr = [];
-  // let i = 1;
-  while (randomNumArr.length <= 5) {
+  while (randomNumArr.length < 5) {
     let num =
       Math.floor(Math.random() * (15 * col - 15 * (col - 1))) +
       15 * (col - 1) +
       1;
     if (randomNumArr.includes(num) === false) {
       randomNumArr.push(num);
-      // i++;
     }
     // console.log(randomNumArr);
   }
@@ -22,7 +20,6 @@ numArr[2][2] = "free";
 
 const titleArr = ["B", "I", "N", "G", "O"];
 const view = document.getElementById("view"); //table
-// console.log(numArr);
 // タイトル行を作る
 for (let col = 0; col < titleArr.length; col++) {
   const th = document.createElement("th");
@@ -31,12 +28,11 @@ for (let col = 0; col < titleArr.length; col++) {
 }
 // 5x5の数値を、二次元配列numArrから1行ずつ作る
 // numArr.forEachでまわしたほうがよいのではないか？
-// titleArr.lengthはここでは関係ない表現=>5(numArr.length)のほうがわかるのではないか？
 for (col = 0; col < numArr[0].length; col++) {
   const tr = document.createElement("tr"); // 2. tr作ってtableに追加
   view.appendChild(tr);
-  // numArr[col].lengthのほうが正確な表現では？
-  for (let row = 0; row < numArr.length; row++) {
+  // numArr[col].lengthのほうが正確な表現では？:修正済み↓
+  for (let row = 0; row < numArr[col].length; row++) {
     const td = document.createElement("td"); // 1. 数値をtd5つ分に入れてtrに追加
     td.textContent = numArr[row][col];
     tr.appendChild(td);
@@ -47,10 +43,24 @@ for (col = 0; col < numArr[0].length; col++) {
   }
 }
 
+// numArr.forEachでまわしたほうがよいのではないか？ => 横に展開する。tdで分かれていない
+// let th;
+// titleArr.forEach((title) => {
+//   th = document.createElement("th");
+//   th.textContent = title;
+//   view.appendChild(th);
+// });
+// numArr.forEach((col) => {
+//   const tr = document.createElement("tr");
+//   view.appendChild(tr);
+//   const td = document.createElement("td");
+//   td.textContent = col;
+//   tr.appendChild(td);
+//   // th.appendChild(td);
+// });
 
 const hitNum = document.getElementById("hitNum"); //button
-// 重複数値判定用の配列を用意する
-// const selectNumArr = [];
+let selectNumArr = [];
 hitNum.addEventListener("click", () => {
   const td = document.getElementsByTagName("td");
   let selectNum = Math.floor(Math.random() * 75) + 1;

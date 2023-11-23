@@ -1,6 +1,6 @@
-const nowTime = document.getElementById("nowTime");
-const nowTime2 = document.getElementById("nowTime2");
-const nowTime3 = document.getElementById("nowTime3");
+const middleLeft = document.getElementById("nowTime");
+const middleLeft2 = document.getElementById("nowTime2");
+const middleLeft3 = document.getElementById("nowTime3");
 
 const setTime1 = document.getElementById("setTime1");
 const setTime2 = document.getElementById("setTime2");
@@ -42,14 +42,13 @@ startTimer.addEventListener("click", () => {
   }, 100);
 });
 
-
 const countUp1 = () => {
   if (i === 9) {
     i = 0;
   } else {
     i += 1;
   }
-  nowTime.textContent = `${i}`;
+  middleLeft.textContent = `${i}`;
 };
 const countUp2 = () => {
   if (i2 === 9) {
@@ -57,7 +56,7 @@ const countUp2 = () => {
   } else {
     i2 += 1;
   }
-  nowTime2.textContent = `${i2}`;
+  middleLeft2.textContent = `${i2}`;
 };
 const countUp3 = () => {
   if (i3 === 9) {
@@ -65,7 +64,7 @@ const countUp3 = () => {
   } else {
     i3 += 1;
   }
-  nowTime3.textContent = `${i3}`;
+  middleLeft3.textContent = `${i3}`;
 };
 
 setTime1.addEventListener("click", () => {
@@ -91,8 +90,8 @@ const judge = () => {
     setTime3.disabled === true
   ) {
     if (
-      nowTime.textContent === nowTime2.textContent &&
-      nowTime.textContent === nowTime3.textContent
+      middleLeft.textContent === middleLeft2.textContent &&
+      middleLeft.textContent === middleLeft3.textContent
     ) {
       alert("成功です！");
     } else {
